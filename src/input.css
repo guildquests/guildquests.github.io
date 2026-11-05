@@ -1,0 +1,73 @@
+@import "tailwindcss" source(none);
+@source "../public/index.html";
+
+/* Fonts are self-hosted in public/fonts/.
+   Paths are relative to the output file public/style.css. */
+
+@font-face {
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/cinzel-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/figtree-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/figtree-latin-600-normal.woff2") format("woff2");
+}
+
+@theme {
+  /* Zinc and violet */
+  --color-bg: #09090b;
+  --color-panel: #111114;
+  --color-panel-2: #18181c;
+  --color-line: #2a2a31;
+  --color-text: #ececf1;
+  --color-muted-text: #a1a1ad;
+  --color-accent: #9a8cf5;
+  --color-accent-deep: #3b2a78;
+  --color-primary: #8b5cf6;
+  --color-primary-soft: #c4b5fd;
+  --color-primary-shadow: #2e1a66;
+  --color-on-primary: #14082e;
+  --color-easy: #4ade80;
+  --color-medium: #f5b84a;
+  --color-hard: #f87171;
+
+  /* Type */
+  --font-brand: "Cinzel", ui-serif, Georgia, serif;
+  --font-title: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    background-color: var(--color-bg);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary-soft);
+    outline-offset: 2px;
+  }
+}

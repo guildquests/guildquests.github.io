@@ -1,0 +1,15 @@
+{
+  "name": "quest-board-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One-page landing site for Quest Board, an open-source quest board for teams.",
+  "license": "MIT",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./public/style.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./public/style.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}

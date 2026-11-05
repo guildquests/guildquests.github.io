@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en" class="motion-safe:scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quest Board: turn small team tasks into quests</title>
+  <meta name="description" content="Quest Board is a free, open-source quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
+  <meta name="theme-color" content="#09090b">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quest Board">
+  <meta property="og:title" content="Quest Board: turn small team tasks into quests">
+  <meta property="og:description" content="Quest Board is a free, open-source quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
+  <meta property="og:image" content="https://guildquests.github.io/assets/banner.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quest Board: turn small team tasks into quests">
+  <meta name="twitter:description" content="Quest Board is a free, open-source quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
+  <meta name="twitter:image" content="https://guildquests.github.io/assets/banner.webp">
+</head>
+<body class="bg-bg font-sans text-text antialiased">
+
+  <!-- Nav -->
+  <header id="top" class="sticky top-0 z-50 border-b border-line bg-bg/80 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="assets/logo.webp" alt="Quest Board crest: a silver and violet letter Q" width="32" height="32" class="h-8 w-8 rounded">
+        <span class="font-brand text-sm uppercase tracking-[0.2em] text-text sm:text-base">QUEST BOARD</span>
+      </a>
+
+      <nav class="hidden items-center gap-6 md:flex" aria-label="Sections">
+        <a href="#how-it-works" class="text-sm text-muted-text motion-safe:transition-colors hover:text-primary-soft">How it works</a>
+        <a href="#features" class="text-sm text-muted-text motion-safe:transition-colors hover:text-primary-soft">Features</a>
+        <a href="#self-host" class="text-sm text-muted-text motion-safe:transition-colors hover:text-primary-soft">Self-host</a>
+        <a href="#roadmap" class="text-sm text-muted-text motion-safe:transition-colors hover:text-primary-soft">Roadmap</a>
+        <a href="#faq" class="text-sm text-muted-text motion-safe:transition-colors hover:text-primary-soft">FAQ</a>
+      </nav>
+
+      <a href="https://github.com/guildquests/quest-board" class="shrink-0 rounded-lg border border-line px-3 py-1.5 text-sm text-text motion-safe:transition-colors hover:border-accent">GitHub</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <img src="assets/banner.webp" alt="Wide fantasy banner art: violet light glowing over an ancient stone hall" width="1920" height="640" class="absolute inset-0 h-full w-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-b from-bg/40 via-bg/75 to-bg" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--color-accent-deep)_0%,transparent_65%)] opacity-70" aria-hidden="true"></div>
+
+      <div class="relative mx-auto max-w-6xl px-4 py-24 sm:py-32">
+        <div class="max-w-2xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Open source · Self-hosted · Free</p>
+          <h1 class="mt-6 font-brand text-4xl uppercase leading-tight tracking-wider text-primary-soft sm:text-5xl lg:text-6xl">Useful work should not get lost.</h1>
+          <p class="mt-6 text-lg text-muted-text">Quest Board turns small team tasks into quests. Teammates claim what they want to own, leads review real results, and everyone earns XP, levels and badges.</p>
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="https://quest.hiyan.cloud" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-on-primary motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:brightness-110">Try the demo</a>
+            <a href="https://github.com/guildquests/quest-board" class="inline-flex items-center justify-center rounded-lg border border-line bg-transparent px-6 py-3 font-semibold text-text motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:border-accent">View on GitHub</a>
+          </div>
+
+          <p class="mt-4 text-sm text-muted-text">The demo is shared and resets every night.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+        <div class="rounded-2xl border border-line bg-panel p-2 shadow-[0_0_60px_-15px_var(--color-primary)] sm:p-3">
+          <video controls preload="none" playsinline poster="media/poster.webp" width="1920" height="1080" class="h-auto w-full rounded-lg">
+            <source src="media/quest-board-intro.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="mt-4 text-center text-sm text-muted-text">One minute tour: post, claim, review, reward.</p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">The loop</p>
+        <h2 class="mt-3 font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">How it works</h2>
+
+        <div class="relative mt-12">
+          <div class="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-line md:block" aria-hidden="true"></div>
+          <ol class="grid gap-10 md:grid-cols-4 md:gap-6">
+            <li class="relative">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-panel font-brand text-lg text-primary-soft">1</div>
+              <h3 class="mt-4 font-title text-2xl text-text">Post</h3>
+              <p class="mt-2 text-sm text-muted-text">Share the goal, the effort and the proof you need.</p>
+            </li>
+            <li class="relative">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-panel font-brand text-lg text-primary-soft">2</div>
+              <h3 class="mt-4 font-title text-2xl text-text">Claim</h3>
+              <p class="mt-2 text-sm text-muted-text">Teammates pick the quests they want to own.</p>
+            </li>
+            <li class="relative">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-panel font-brand text-lg text-primary-soft">3</div>
+              <h3 class="mt-4 font-title text-2xl text-text">Review</h3>
+              <p class="mt-2 text-sm text-muted-text">A lead checks the result, then approves it or sends it back.</p>
+            </li>
+            <li class="relative">
+              <div class="flex h-12 w-12 items-center justify-center rounded-full border border-line bg-panel font-brand text-lg text-primary-soft">4</div>
+              <h3 class="mt-4 font-title text-2xl text-text">Reward</h3>
+              <p class="mt-2 text-sm text-muted-text">Finish quests. Earn XP, level up and unlock badges.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">What's inside</p>
+        <h2 class="mt-3 font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">Built like a game, made for real work</h2>
+
+        <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent" aria-hidden="true">
+              <path d="M7 4h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/>
+              <path d="M9 8h6M9 12h6M9 16h3"/>
+            </svg>
+            <h3 class="mt-4 font-title text-2xl text-text">Quests</h3>
+            <p class="mt-2 text-sm text-muted-text">Post a quest with a category, difficulty, objectives and the proof you need. Claims expire on their own, so nothing stays stuck.</p>
+          </article>
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent" aria-hidden="true">
+              <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/>
+            </svg>
+            <h3 class="mt-4 font-title text-2xl text-text">XP and levels</h3>
+            <p class="mt-2 text-sm text-muted-text">Easy, Medium and Hard quests give 10, 30 and 60 XP. Six levels, from Apprentice to Legend.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="rounded-full border border-easy/40 px-2.5 py-1 text-xs font-semibold text-easy">Easy 10 XP</span>
+              <span class="rounded-full border border-medium/40 px-2.5 py-1 text-xs font-semibold text-medium">Medium 30 XP</span>
+              <span class="rounded-full border border-hard/40 px-2.5 py-1 text-xs font-semibold text-hard">Hard 60 XP</span>
+            </div>
+          </article>
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent" aria-hidden="true">
+              <circle cx="12" cy="9" r="5"/>
+              <path d="M8.6 13.4 7 21l5-2.6L17 21l-1.6-7.6"/>
+            </svg>
+            <h3 class="mt-4 font-title text-2xl text-text">Badges</h3>
+            <p class="mt-2 text-sm text-muted-text">Five badges with progress bars, and a shareable Guild ID card for each member.</p>
+          </article>
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent" aria-hidden="true">
+              <rect x="5" y="4" width="14" height="17" rx="2"/>
+              <path d="M9 4V3h6v1"/>
+              <path d="m9 13 2 2 4-4"/>
+            </svg>
+            <h3 class="mt-4 font-title text-2xl text-text">Review queue</h3>
+            <p class="mt-2 text-sm text-muted-text">Leads see what is waiting, adjust the difficulty and approve or return the work with a note.</p>
+          </article>
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent" aria-hidden="true">
+              <path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"/>
+              <path d="M8 5H5v2a3 3 0 0 0 3 3"/>
+              <path d="M16 5h3v2a3 3 0 0 1-3 3"/>
+              <path d="M12 13v4"/>
+              <path d="M9 20h6"/>
+            </svg>
+            <h3 class="mt-4 font-title text-2xl text-text">Hall of Fame</h3>
+            <p class="mt-2 text-sm text-muted-text">Monthly highlights, top players and recent completions. Shared progress, without pressure.</p>
+          </article>
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-accent" aria-hidden="true">
+              <rect x="3" y="4" width="18" height="16" rx="2"/>
+              <circle cx="8.5" cy="9.5" r="1.5"/>
+              <path d="m4 18 5-5 4 4 3-3 4 4"/>
+            </svg>
+            <h3 class="mt-4 font-title text-2xl text-text">Your branding</h3>
+            <p class="mt-2 text-sm text-muted-text">Admins change the name, tagline, logo, banner, mascot and color theme in Settings. No code needed.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screenshots" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">A closer look</p>
+        <h2 class="mt-3 font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">See it in action</h2>
+
+        <div class="mt-12 grid gap-8 sm:grid-cols-2">
+
+          <a href="media/board.webp" class="block">
+            <div class="overflow-hidden rounded-xl border border-line bg-panel motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+              <img src="media/board.webp" alt="The Quest Board: quest cards filtered by status and category" width="1280" height="720" loading="lazy" class="h-auto w-full">
+            </div>
+            <p class="mt-3 text-sm text-muted-text">The board: filter quests by status and category.</p>
+          </a>
+
+          <a href="media/quest.webp" class="block">
+            <div class="overflow-hidden rounded-xl border border-line bg-panel motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+              <img src="media/quest.webp" alt="A quest page showing objectives, proof requirements and activity" width="1280" height="720" loading="lazy" class="h-auto w-full">
+            </div>
+            <p class="mt-3 text-sm text-muted-text">A quest page with objectives, proof and activity.</p>
+          </a>
+
+          <a href="media/review.webp" class="block">
+            <div class="overflow-hidden rounded-xl border border-line bg-panel motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+              <img src="media/review.webp" alt="The review queue listing quests waiting for a lead's approval" width="1280" height="720" loading="lazy" class="h-auto w-full">
+            </div>
+            <p class="mt-3 text-sm text-muted-text">The review queue for leads.</p>
+          </a>
+
+          <a href="media/status-window.webp" class="block">
+            <div class="overflow-hidden rounded-xl border border-line bg-panel motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+              <img src="media/status-window.webp" alt="The Status Window showing a member's XP, badges and quest history" width="1280" height="720" loading="lazy" class="h-auto w-full">
+            </div>
+            <p class="mt-3 text-sm text-muted-text">The Status Window: your XP, badges and history.</p>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Self-host -->
+    <section id="self-host" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Your server, your data</p>
+        <h2 class="mt-3 font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">Self-host in three steps</h2>
+        <p class="mt-4 max-w-2xl text-muted-text">One install per team, with its own database and branding. You need Docker with Compose. Nothing else.</p>
+
+        <ol class="mt-12 space-y-10">
+          <li>
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-panel font-brand text-sm text-primary-soft">1</span>
+              <h3 class="font-title text-xl text-text">Get the code</h3>
+            </div>
+            <pre class="mt-3 overflow-x-auto rounded-lg border border-line bg-panel-2 p-4"><code class="font-mono text-sm text-text">git clone https://github.com/guildquests/quest-board.git
+cd quest-board
+cp .env.example .env</code></pre>
+          </li>
+
+          <li>
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-panel font-brand text-sm text-primary-soft">2</span>
+              <h3 class="font-title text-xl text-text">Set <code class="font-mono text-base text-primary-soft">APP_KEY</code>, <code class="font-mono text-base text-primary-soft">APP_URL</code> and <code class="font-mono text-base text-primary-soft">DB_PASSWORD</code> in <code class="font-mono text-base text-primary-soft">.env</code>, then start it</h3>
+            </div>
+            <pre class="mt-3 overflow-x-auto rounded-lg border border-line bg-panel-2 p-4"><code class="font-mono text-sm text-text">docker compose up -d</code></pre>
+          </li>
+
+          <li>
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-panel font-brand text-sm text-primary-soft">3</span>
+              <h3 class="font-title text-xl text-text">Create your first admin</h3>
+            </div>
+            <pre class="mt-3 overflow-x-auto rounded-lg border border-line bg-panel-2 p-4"><code class="font-mono text-sm text-text">docker compose exec app php artisan quests:create-admin</code></pre>
+          </li>
+        </ol>
+
+        <p class="mt-10 max-w-2xl text-sm text-muted-text">Runs on any Docker host, including Dokploy. Put a reverse proxy in front for HTTPS.</p>
+        <p class="mt-2">
+          <a href="https://github.com/guildquests/quest-board/blob/main/docs/deploy.md" class="text-accent motion-safe:transition-colors hover:text-primary-soft hover:underline">Read the full deploy guide &rarr;</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+        <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Coming next</p>
+        <h2 class="mt-3 font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">Roadmap</h2>
+        <p class="mt-4 text-sm text-muted-text">Ideas we plan to build. Not in the app yet.</p>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <span class="inline-flex rounded-full border border-accent/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">Planned</span>
+            <h3 class="mt-4 font-title text-2xl text-text">Challenges</h3>
+            <p class="mt-2 text-sm text-muted-text">Leads post a time-limited challenge with a goal. Several people can win, and the creator gives the reward, like a free coffee.</p>
+          </article>
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <span class="inline-flex rounded-full border border-accent/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">Planned</span>
+            <h3 class="mt-4 font-title text-2xl text-text">Tokens and the Guild Shop</h3>
+            <p class="mt-2 text-sm text-muted-text">Earn Tokens from quests and spend them on cosmetic items in the Guild Shop.</p>
+          </article>
+
+          <article class="rounded-xl border border-line bg-panel p-6 motion-safe:transition motion-safe:duration-300 motion-safe:hover:-translate-y-1 motion-safe:hover:border-primary motion-safe:hover:shadow-[0_0_40px_-10px_var(--color-primary)]">
+            <span class="inline-flex rounded-full border border-accent/40 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent">Planned</span>
+            <h3 class="mt-4 font-title text-2xl text-text">Bounties</h3>
+            <p class="mt-2 text-sm text-muted-text">Quest creators can add an optional real reward to a quest.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="scroll-mt-24">
+      <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
+        <h2 class="font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">Questions</h2>
+
+        <div class="mt-10 space-y-3">
+
+          <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-title text-xl text-text [&amp;::-webkit-details-marker]:hidden">
+              <span>Is it free?</span>
+              <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted-text">Yes. Quest Board is open source under the MIT License. You host it yourself, so there is no subscription.</p>
+          </details>
+
+          <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-title text-xl text-text [&amp;::-webkit-details-marker]:hidden">
+              <span>Is it a replacement for Jira or Trello?</span>
+              <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted-text">No. It is for the small, useful tasks around the main work: docs, tooling, research and experiments. Keep client work in your project tool.</p>
+          </details>
+
+          <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-title text-xl text-text [&amp;::-webkit-details-marker]:hidden">
+              <span>Can people sign themselves up?</span>
+              <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted-text">No. There is no sign-up page. An admin adds members and picks their portraits, and each team runs its own install.</p>
+          </details>
+
+          <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-title text-xl text-text [&amp;::-webkit-details-marker]:hidden">
+              <span>What do I need to run it?</span>
+              <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted-text">A server with Docker Compose. It runs four containers: the app, a queue worker, a scheduler and MySQL.</p>
+          </details>
+
+          <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-title text-xl text-text [&amp;::-webkit-details-marker]:hidden">
+              <span>Can I change how it looks?</span>
+              <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted-text">Yes. Admins change the name, tagline, logo, banner, favicon, mascot and color theme in Settings &gt; Branding. Four dark themes are built in.</p>
+          </details>
+
+          <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-title text-xl text-text [&amp;::-webkit-details-marker]:hidden">
+              <span>Is there a light mode?</span>
+              <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted-text">No. Quest Board is dark only, on purpose. Animations respect your reduced-motion setting.</p>
+          </details>
+
+          <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-title text-xl text-text [&amp;::-webkit-details-marker]:hidden">
+              <span>What does the demo show?</span>
+              <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-muted-text">A shared demo team with sample quests. Anything you change is reset every night, so do not post anything private.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Final call to action -->
+    <section class="relative overflow-hidden">
+      <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--color-accent-deep)_0%,transparent_65%)] opacity-70" aria-hidden="true"></div>
+
+      <div class="relative mx-auto max-w-6xl px-4 py-24 sm:py-28">
+        <div class="flex flex-col items-center gap-8 text-center sm:flex-row sm:justify-center sm:text-left">
+          <img src="assets/mascot.webp" alt="Owl mascot holding a scroll" width="160" height="160" loading="lazy" class="h-40 w-40 shrink-0">
+          <div>
+            <h2 class="font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">Choose your next quest.</h2>
+            <p class="mt-4 text-muted-text">Try the demo, or host your own board in a few minutes.</p>
+            <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row sm:justify-start">
+              <a href="https://quest.hiyan.cloud" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-on-primary motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:brightness-110">Try the demo</a>
+              <a href="https://github.com/guildquests/quest-board" class="inline-flex items-center justify-center rounded-lg border border-line bg-transparent px-6 py-3 font-semibold text-text motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:border-accent">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-line">
+    <div class="mx-auto max-w-6xl px-4 py-10">
+      <p class="text-sm text-muted-text">
+        <span class="block sm:inline">MIT License</span>
+        <span class="hidden sm:inline" aria-hidden="true">·</span>
+        <span class="block sm:inline">© 2026 mrlinnth</span>
+        <span class="hidden sm:inline" aria-hidden="true">·</span>
+        <a href="https://github.com/guildquests/guildquests.github.io/blob/main/CREDITS.md" class="block text-accent hover:underline sm:inline">Credits</a>
+        <span class="hidden sm:inline" aria-hidden="true">·</span>
+        <a href="https://github.com/guildquests/quest-board" class="block text-accent hover:underline sm:inline">GitHub</a>
+      </p>
+      <p class="mt-4 text-sm text-muted-text">Video music: "Adventure Time - Time Flies" by Tape Echo, Pixabay Content License.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
