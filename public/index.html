@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Quest Board: turn small team tasks into quests</title>
-  <meta name="description" content="Quest Board is a free quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
+  <meta name="description" content="Quest Board is a free, open-source quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
   <meta name="theme-color" content="#09090b">
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="style.css">
@@ -12,11 +12,11 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Quest Board">
   <meta property="og:title" content="Quest Board: turn small team tasks into quests">
-  <meta property="og:description" content="Quest Board is a free quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
+  <meta property="og:description" content="Quest Board is a free, open-source quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
   <meta property="og:image" content="https://guildquests.github.io/assets/banner.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Quest Board: turn small team tasks into quests">
-  <meta name="twitter:description" content="Quest Board is a free quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
+  <meta name="twitter:description" content="Quest Board is a free, open-source quest board for teams. Post small tasks as quests, let teammates claim them, review the results, and earn XP, levels and badges. Self-hosted with Docker.">
   <meta name="twitter:image" content="https://guildquests.github.io/assets/banner.webp">
 </head>
 <body class="bg-bg font-sans text-text antialiased">
@@ -37,6 +37,7 @@
         <a href="#faq" class="text-sm text-muted-text motion-safe:transition-colors hover:text-primary-soft">FAQ</a>
       </nav>
 
+      <a href="https://github.com/guildquests/quest-board" class="shrink-0 rounded-lg border border-line px-3 py-1.5 text-sm text-text motion-safe:transition-colors hover:border-accent">GitHub</a>
     </div>
   </header>
 
@@ -50,12 +51,13 @@
 
       <div class="relative mx-auto max-w-6xl px-4 py-24 sm:py-32">
         <div class="max-w-2xl">
-          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Self-hosted · Free</p>
+          <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Open source · Self-hosted · Free</p>
           <h1 class="mt-6 font-brand text-4xl uppercase leading-tight tracking-wider text-primary-soft sm:text-5xl lg:text-6xl">Useful work should not get lost.</h1>
           <p class="mt-6 text-lg text-muted-text">Quest Board turns small team tasks into quests. Teammates claim what they want to own, leads review real results, and everyone earns XP, levels and badges.</p>
 
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="https://quest.hiyan.cloud" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-on-primary motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:brightness-110">Try the demo</a>
+            <a href="https://github.com/guildquests/quest-board" class="inline-flex items-center justify-center rounded-lg border border-line bg-transparent px-6 py-3 font-semibold text-text motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:border-accent">View on GitHub</a>
           </div>
 
           <p class="mt-4 text-sm text-muted-text">The demo is shared and resets every night.</p>
@@ -242,11 +244,41 @@
     <section id="self-host" class="scroll-mt-24">
       <div class="mx-auto max-w-6xl px-4 py-20 sm:py-28">
         <p class="text-xs font-semibold uppercase tracking-[0.25em] text-accent">Your server, your data</p>
-        <h2 class="mt-3 font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">Self-host with Docker</h2>
+        <h2 class="mt-3 font-brand text-3xl uppercase tracking-widest text-primary-soft sm:text-4xl">Self-host in three steps</h2>
         <p class="mt-4 max-w-2xl text-muted-text">One install per team, with its own database and branding. You need Docker with Compose. Nothing else.</p>
 
-        <p class="mt-12 max-w-2xl text-lg text-text">The source code is coming soon. Check back here for the setup steps.</p>
-        <p class="mt-4 max-w-2xl text-sm text-muted-text">It will run on any Docker host, including Dokploy.</p>
+        <ol class="mt-12 space-y-10">
+          <li>
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-panel font-brand text-sm text-primary-soft">1</span>
+              <h3 class="font-title text-xl text-text">Get the code</h3>
+            </div>
+            <pre class="mt-3 overflow-x-auto rounded-lg border border-line bg-panel-2 p-4"><code class="font-mono text-sm text-text">git clone https://github.com/guildquests/quest-board.git
+cd quest-board
+cp .env.example .env</code></pre>
+          </li>
+
+          <li>
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-panel font-brand text-sm text-primary-soft">2</span>
+              <h3 class="font-title text-xl text-text">Set <code class="font-mono text-base text-primary-soft">APP_KEY</code>, <code class="font-mono text-base text-primary-soft">APP_URL</code> and <code class="font-mono text-base text-primary-soft">DB_PASSWORD</code> in <code class="font-mono text-base text-primary-soft">.env</code>, then start it</h3>
+            </div>
+            <pre class="mt-3 overflow-x-auto rounded-lg border border-line bg-panel-2 p-4"><code class="font-mono text-sm text-text">docker compose up -d</code></pre>
+          </li>
+
+          <li>
+            <div class="flex items-center gap-3">
+              <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-line bg-panel font-brand text-sm text-primary-soft">3</span>
+              <h3 class="font-title text-xl text-text">Create your first admin</h3>
+            </div>
+            <pre class="mt-3 overflow-x-auto rounded-lg border border-line bg-panel-2 p-4"><code class="font-mono text-sm text-text">docker compose exec app php artisan quests:create-admin</code></pre>
+          </li>
+        </ol>
+
+        <p class="mt-10 max-w-2xl text-sm text-muted-text">Runs on any Docker host, including Dokploy. Put a reverse proxy in front for HTTPS.</p>
+        <p class="mt-2">
+          <a href="https://github.com/guildquests/quest-board/blob/main/docs/deploy.md" class="text-accent motion-safe:transition-colors hover:text-primary-soft hover:underline">Read the full deploy guide &rarr;</a>
+        </p>
       </div>
     </section>
 
@@ -293,7 +325,7 @@
               <span>Is it free?</span>
               <span class="shrink-0 font-sans text-2xl leading-none text-accent motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-45" aria-hidden="true">+</span>
             </summary>
-            <p class="mt-3 text-sm text-muted-text">Yes. Quest Board is free to use. You host it yourself, so there is no subscription.</p>
+            <p class="mt-3 text-sm text-muted-text">Yes. Quest Board is open source under the MIT License. You host it yourself, so there is no subscription.</p>
           </details>
 
           <details class="group rounded-xl border border-line bg-panel p-5 motion-safe:transition-colors hover:border-primary">
@@ -360,6 +392,7 @@
             <p class="mt-4 text-muted-text">Try the demo, or host your own board in a few minutes.</p>
             <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row sm:justify-start">
               <a href="https://quest.hiyan.cloud" class="inline-flex items-center justify-center rounded-lg bg-primary px-6 py-3 font-semibold text-on-primary motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:brightness-110">Try the demo</a>
+              <a href="https://github.com/guildquests/quest-board" class="inline-flex items-center justify-center rounded-lg border border-line bg-transparent px-6 py-3 font-semibold text-text motion-safe:transition motion-safe:hover:-translate-y-0.5 hover:border-accent">View on GitHub</a>
             </div>
           </div>
         </div>
@@ -372,9 +405,13 @@
   <footer class="border-t border-line">
     <div class="mx-auto max-w-6xl px-4 py-10">
       <p class="text-sm text-muted-text">
+        <span class="block sm:inline">MIT License</span>
+        <span class="hidden sm:inline" aria-hidden="true">·</span>
         <span class="block sm:inline">© 2026 <a href="https://github.com/mrlinnth" class="text-accent hover:underline">@mrlinnth</a></span>
         <span class="hidden sm:inline" aria-hidden="true">·</span>
         <a href="https://github.com/guildquests/guildquests.github.io/blob/main/CREDITS.md" class="block text-accent hover:underline sm:inline">Credits</a>
+        <span class="hidden sm:inline" aria-hidden="true">·</span>
+        <a href="https://github.com/guildquests/quest-board" class="block text-accent hover:underline sm:inline">GitHub</a>
       </p>
       <p class="mt-4 text-sm text-muted-text">Video music: "Adventure Time - Time Flies" by Tape Echo, Pixabay Content License.</p>
     </div>
