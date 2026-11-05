@@ -39,4 +39,14 @@ Use the Edit/Write tools for text files. Copy binary files with `cp`. Commit eac
 - No files changed outside: `public/fonts/`, `public/media/`, `public/index.html`, `LICENSE`, `CLAUDE.md`.
 
 ## Result
-<Filled in after review>
+Built as planned. Commits on `fix-font-footer-admin-shots`:
+- 7f0db7f docs: plan file (the commit script also added `CLAUDE.md` here, so step 4 needed no commit)
+- 55ba0f2 fix: add missing Figtree 600 font file (byte-identical to the @fontsource 5.3.0 file)
+- 01f645e fix: use GitHub handle in footer and license
+- a0d7429 feat: show Members and Branding admin screenshots (byte-identical to the captured files)
+
+Review: the diff touches only the planned paths. No file in the working tree contains the old name.
+
+Differences and open items:
+- `npm run build` fails locally with EACCES because `public/style.css` is owned by root. That file is git-ignored and rebuilt in CI. The builder ran the same Tailwind command with output to the scratchpad, and it succeeded. Fix locally with `sudo chown $USER public/style.css`.
+- Still open: step 5 (history rewrite on `main` after merge), then the owner runs the force push.
